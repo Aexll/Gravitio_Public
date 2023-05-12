@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
+#include "Gravitable.h"
 #include "GravitioFunctions.generated.h"
 
 /**
@@ -19,8 +20,13 @@ public:
 	UFUNCTION(BlueprintCallable, BlueprintPure, Category="Gravity")
 	static float CalculateGravityForce(const FVector Position1,const FVector Position2,const float Mass1,const float Mass2);
 
-
 	UFUNCTION(BlueprintCallable, BlueprintPure, Category="Gravity")
 	static FVector CalculateGravityVector(const FVector Position1, const FVector Position2, const float Mass1, const float Mass2);
+
+	UFUNCTION(BlueprintCallable, BlueprintPure, Category="Gravity")
+	static FVector CalculateGravityVectorObjects(const FGravitable Object1, const FGravitable Object2);
+	
+	UFUNCTION(BlueprintCallable, Category="Gravity")
+	static FVector CalculateGravityMultiplePoints(const FGravitable Object, const TArray<FGravitable> ObjectArray);
 	
 };
